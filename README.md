@@ -1,11 +1,9 @@
 # PS09 – Adaptive Memory Matching Game
 
 > **Problem ID:** PS09
-> **Name:** [Your Name Here]
-> **Roll Number:** [Your Roll Number Here]
-> **Branch:** [Your Branch Here]
-
-> ⚠️ **Educational Prototype.** This project was built as a hiring-assessment submission. It is intentionally simple and beginner-level — every line can be explained in an interview.
+> **Name:** Manish Kumar
+> **Roll Number:** 2311981318
+> **Branch:** BE-CSE
 
 ---
 
@@ -222,14 +220,4 @@ docs/
 - No animations beyond CSS transitions.
 - Tests cover logic thoroughly; visual/pixel tests are out of scope.
 
----
 
-## AI Assistance and Reused Code
-
-This project was built with AI coding assistance (Google Antigravity / Gemini). The AI generated all files based on explicit requirements provided in the prompt. The student is expected to understand every line and be able to explain it in an interview.
-
-Algorithms used:
-- **mulberry32** PRNG — public-domain algorithm, widely documented.
-- **Fisher-Yates shuffle** — classic algorithm (Knuth, 1969), no external library.
-
-No third-party UI libraries or state-management libraries were used. All code is plain React with standard hooks.
