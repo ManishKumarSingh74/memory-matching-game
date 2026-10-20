@@ -207,8 +207,6 @@ docs/
 | `<button>` cards (accessible) | `Card.jsx` |
 | aria-label on cards | `Card.jsx` |
 | Emoji card faces | `gameLogic.js` SYMBOLS |
-| CI workflow | `.github/workflows/ci.yml` |
-| Azure hosting docs | `docs/azure-hosting.md` |
 | README with demo script | `README.md` |
 
 ---
