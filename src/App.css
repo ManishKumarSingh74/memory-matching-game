@@ -1,0 +1,291 @@
+/* App.css – all styles for the Memory Matching game.
+   One file, plain CSS, no preprocessors. */
+
+/* ── Reset & Base ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f0e17;
+  color: #fffffe;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* ── App wrapper ─────────────────────────────────────── */
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.app__header {
+  text-align: center;
+}
+
+.app__header h1 {
+  font-size: 2rem;
+  color: #ff8906;
+}
+
+.app__subtitle {
+  font-size: 0.85rem;
+  color: #a7a9be;
+  margin-top: 0.25rem;
+}
+
+/* ── Status bar ──────────────────────────────────────── */
+.status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  background: #1a1a2e;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+}
+
+.status-bar__seed {
+  color: #a7a9be;
+  font-size: 0.8rem;
+}
+
+/* ── Card Grid ───────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+
+/* ── Card button ─────────────────────────────────────── */
+.card {
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 2rem;
+  background: #16213e;
+  color: #fffffe;
+  transition: transform 0.15s ease, background 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover:not(:disabled) {
+  transform: scale(1.06);
+  background: #1a1a2e;
+}
+
+.card:focus-visible {
+  outline: 3px solid #ff8906;
+  outline-offset: 2px;
+}
+
+/* Face-up card */
+.card--faceup {
+  background: #0f3460;
+}
+
+/* Matched card */
+.card--matched {
+  background: #1b4332;
+  cursor: default;
+  opacity: 0.85;
+}
+
+.card__face {
+  pointer-events: none; /* let clicks pass through to the button */
+  user-select: none;
+}
+
+/* ── Win screen ──────────────────────────────────────── */
+.win-screen {
+  background: linear-gradient(135deg, #ff8906 0%, #f25f4c 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  color: #0f0e17;
+}
+
+.win-screen h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.win-screen p {
+  margin-bottom: 0.5rem;
+}
+
+.win-screen__reason {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.win-screen__buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Buttons ─────────────────────────────────────────── */
+.btn {
+  padding: 0.55rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn--primary {
+  background: #0f0e17;
+  color: #ff8906;
+}
+
+.btn--secondary {
+  background: #1a1a2e;
+  color: #fffffe;
+}
+
+.btn--danger {
+  background: #c0392b;
+  color: #fffffe;
+  margin-top: 0.5rem;
+}
+
+/* ── Controls (restart + level select) ───────────────── */
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.level-select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #a7a9be;
+  background: #1a1a2e;
+  color: #fffffe;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* ── History table ───────────────────────────────────── */
+.history {
+  background: #1a1a2e;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.history h2 {
+  margin-bottom: 0.75rem;
+  color: #ff8906;
+}
+
+.history__empty {
+  color: #a7a9be;
+  font-style: italic;
+}
+
+.history__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.history__table th,
+.history__table td {
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid #16213e;
+}
+
+.history__table th {
+  color: #a7a9be;
+  font-weight: 600;
+}
+
+/* ── How to Play ─────────────────────────────────────── */
+.how-to-play {
+  background: #1a1a2e;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+
+.how-to-play h2 {
+  color: #ff8906;
+  margin-bottom: 0.5rem;
+}
+
+.how-to-play ol {
+  padding-left: 1.25rem;
+  line-height: 1.8;
+}
+
+.how-to-play details {
+  margin-top: 0.75rem;
+}
+
+.how-to-play summary {
+  cursor: pointer;
+  color: #a7a9be;
+  font-size: 0.9rem;
+}
+
+.rule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+}
+
+.rule-table th,
+.rule-table td {
+  padding: 0.35rem 0.6rem;
+  border-bottom: 1px solid #16213e;
+  text-align: left;
+}
+
+.rule-table th {
+  color: #a7a9be;
+}
+
+.seed-tip {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #a7a9be;
+}
+
+.seed-tip code {
+  background: #16213e;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 400px) {
+  .card {
+    font-size: 1.5rem;
+  }
+  .app__header h1 {
+    font-size: 1.5rem;
+  }
+}

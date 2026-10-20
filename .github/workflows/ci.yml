@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js (same version used in development)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3. Install dependencies exactly as listed in package-lock.json
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Run all Vitest tests; CI fails if any test fails
+      - name: Run tests
+        run: npm test
+
+      # 5. Build the Vite production bundle; CI fails if the build breaks
+      - name: Build
+        run: npm run build
